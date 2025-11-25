@@ -1,0 +1,42 @@
+# Virtual environments
+venv/
+venv3/
+mtq4/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Large model checkpoints (only for mt_q1, mt_q2, mt_q3)
+mt_q1/**/*.pth
+mt_q2/**/*.pt
+mt_q3/**/*.pt
+
+# Large embeddings
+embeddings/glove/
+embeddings/cache/
+glove.*.txt
+
+# Large dataset files
+data/raw/aclImdb/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log
