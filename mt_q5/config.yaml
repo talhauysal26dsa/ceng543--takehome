@@ -1,0 +1,93 @@
+# MT Q5: Model Interpretability and Error Analysis Configuration
+
+# Model Selection
+model:
+  source: 'mt_q1' # Best performing model from mt_q1
+  type: 'bert' # Actually BERT (DistilBERT) classifier, not GRU+BERT
+  checkpoint_path: 'mt_q1/experiments/gru_bert/gru_bert_best.pth' # Relative from workspace root
+
+# Data Configuration
+data:
+  source: '../mt_q1/data'
+  test_split: 'test'
+  batch_size: 32
+  num_workers: 4
+  sample_size: 100 # Reduced for faster analysis (was 1000)
+  failure_case_size: 50 # Number of samples to analyze for failures
+
+# Interpretability Methods
+interpretability:
+  # Attention Visualization
+  attention:
+    enabled: true
+    num_samples: 50
+    save_heatmaps: true
+
+  # Integrated Gradients
+  integrated_gradients:
+    enabled: true
+    num_samples: 100
+    n_steps: 50 # Integration steps
+    baseline: 'zero' # or "pad"
+
+  # LIME (disabled - not required for Question 5)
+  lime:
+    enabled: false
+    num_samples: 50
+    num_features: 10
+    num_perturbations: 1000
+
+# Error Analysis
+error_analysis:
+  # Failure case detection
+  failure_cases:
+    min_confidence_threshold: 0.3
+    max_confidence_threshold: 0.7
+    categories:
+      - 'low_confidence_correct'
+      - 'high_confidence_wrong'
+      - 'rare_words'
+      - 'ambiguous_context'
+      - 'attention_misalignment'
+
+  # Root cause analysis
+  rare_word_threshold: 10 # Frequency threshold
+  context_length_bins: [0, 50, 100, 200, 500]
+
+# Uncertainty Quantification
+uncertainty:
+  # Entropy metrics
+  entropy:
+    enabled: true
+
+  # Calibration metrics
+  calibration:
+    enabled: true
+    n_bins: 10
+    method: 'equal_frequency' # or "equal_width"
+
+  # Monte Carlo Dropout
+  mc_dropout:
+    enabled: true
+    num_samples: 30
+    dropout_rate: 0.2
+
+# Visualization Settings
+visualization:
+  save_format: 'png'
+  dpi: 300
+  figure_size: [12, 8]
+  color_scheme: 'viridis'
+
+# Output Settings
+output:
+  experiments_dir: './experiments'
+  visualizations_dir: './visualizations'
+  results_dir: './results'
+  reports_dir: './reports'
+  save_intermediate: true
+
+# Random Seeds
+seed: 42
+torch_seed: 42
+numpy_seed: 42

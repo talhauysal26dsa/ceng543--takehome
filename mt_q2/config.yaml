@@ -1,0 +1,151 @@
+seeds:
+  random_seed: 42          # Python random
+  numpy_seed: 42           # NumPy random
+  torch_seed: 42           # PyTorch random
+  torch_cuda_seed: 42      # PyTorch CUDA random
+
+# =============================================================================
+# Dataset Configuration
+# =============================================================================
+dataset:
+  name: "multi30k"
+  source_lang: "en"        # English
+  target_lang: "de"        # German
+  min_freq: 2              # Minimum word frequency for vocabulary
+  max_length: 50           # Maximum sequence length (words)
+  
+  # Special tokens
+  sos_token: "<sos>"       # Start of sequence
+  eos_token: "<eos>"       # End of sequence
+  pad_token: "<pad>"       # Padding token
+  unk_token: "<unk>"       # Unknown token
+
+# =============================================================================
+# Model Architecture
+# =============================================================================
+model:
+  # Embedding
+  embedding_dim: 256       # Word embedding dimension
+  
+  # Encoder
+  encoder_hidden_dim: 512  # Encoder GRU hidden dimension
+  encoder_layers: 2        # Number of encoder layers
+  encoder_dropout: 0.3     # Encoder dropout rate
+  encoder_bidirectional: true  # Use bidirectional encoder
+  
+  # Decoder
+  decoder_hidden_dim: 512  # Decoder GRU hidden dimension
+  decoder_layers: 2        # Number of decoder layers
+  decoder_dropout: 0.3     # Decoder dropout rate
+  
+  # Attention
+  attention_dim: 512       # Attention mechanism dimension
+  
+  # Attention types (we'll train all three)
+  attention_types:
+    - "bahdanau"           # Additive attention
+    - "luong"              # Multiplicative attention
+    - "scaled_dot"         # Scaled dot-product attention
+
+# =============================================================================
+# Training Configuration
+# =============================================================================
+training:
+  batch_size: 128          # Batch size
+  learning_rate: 0.001     # Initial learning rate
+  epochs: 20               # Maximum number of epochs
+  gradient_clip: 1.0       # Gradient clipping threshold
+  
+  # Optimizer
+  optimizer: "adam"
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8
+  weight_decay: 0.0001
+  
+  # Learning rate scheduler
+  scheduler: "reduce_on_plateau"
+  scheduler_factor: 0.5    # LR reduction factor
+  scheduler_patience: 3    # Patience for LR reduction
+  scheduler_min_lr: 0.00001  # Minimum learning rate
+  
+  # Early stopping
+  early_stopping: true
+  early_stopping_patience: 5  # Stop if no improvement for N epochs
+  
+  # Validation
+  validate_every: 1        # Validate every N epochs
+  save_best_only: true     # Only save best model
+  
+  # Teacher forcing
+  teacher_forcing_ratio: 0.5  # Probability of using teacher forcing
+
+# =============================================================================
+# Evaluation Configuration
+# =============================================================================
+evaluation:
+  beam_search: true        # Use beam search for inference
+  beam_size: 5             # Beam size for beam search
+  max_decode_length: 50    # Maximum decoding length
+  
+  # Metrics
+  metrics:
+    - "bleu"               # BLEU score
+    - "rouge"              # ROUGE score
+    - "perplexity"         # Perplexity
+  
+  # BLEU configuration
+  bleu_max_n: 4            # Max n-gram for BLEU (4 = BLEU-4)
+  
+  # ROUGE configuration
+  rouge_types:
+    - "rouge1"             # Unigram overlap
+    - "rouge2"             # Bigram overlap
+    - "rougeL"             # Longest common subsequence
+
+# =============================================================================
+# Visualization Configuration
+# =============================================================================
+visualization:
+  num_samples: 5           # Number of samples to visualize
+  attention_heatmap:
+    figsize: [12, 8]       # Figure size (width, height)
+    cmap: "viridis"        # Colormap
+    save_format: "png"     # Save format
+    dpi: 300               # DPI for saved figures
+  
+  # Attention analysis
+  analyze_entropy: true    # Analyze attention entropy
+  analyze_sharpness: true  # Analyze attention sharpness
+
+# =============================================================================
+# Hardware Configuration
+# =============================================================================
+hardware:
+  device: "auto"           # "auto", "cuda", or "cpu"
+  num_workers: 0           # DataLoader workers (0 for Windows to avoid pickle issues)
+  pin_memory: true         # Pin memory for faster GPU transfer
+
+# =============================================================================
+# Logging Configuration
+# =============================================================================
+logging:
+  log_interval: 100        # Log every N batches
+  save_dir: "experiments"  # Directory to save experiments
+  tensorboard: false       # Use tensorboard (optional)
+  
+  # What to log
+  log_train_loss: true
+  log_val_loss: true
+  log_attention_stats: true  # Log attention statistics
+
+# =============================================================================
+# Reproducibility Notes
+# =============================================================================
+# To ensure reproducibility:
+# 1. All seeds are fixed above
+# 2. Set PYTHONHASHSEED=42 in environment
+# 3. Use torch.backends.cudnn.deterministic = True
+# 4. Use torch.backends.cudnn.benchmark = False
+# 5. Document PyTorch and Python versions
+

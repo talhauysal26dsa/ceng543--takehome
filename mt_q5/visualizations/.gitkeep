@@ -1,0 +1,12 @@
+# Visualizations Directory
+
+This directory contains all generated visualizations.
+
+## Subdirectories
+
+- **attention/** - Attention heatmaps and flow visualizations
+- **integrated_gradients/** - Attribution plots and feature importance
+- **lime/** - LIME explanations and probability distributions
+- **uncertainty/** - Entropy, calibration, and MC Dropout plots
+
+Created automatically by `run_analysis.py`.

@@ -1,0 +1,86 @@
+ablation:
+  heads:
+  - 2
+  - 4
+  - 8
+  layers:
+  - 2
+  - 4
+  - 6
+dataset:
+  eos_token: <eos>
+  max_length: 50
+  min_freq: 2
+  name: multi30k
+  pad_token: <pad>
+  sos_token: <sos>
+  source_lang: en
+  target_lang: de
+  unk_token: <unk>
+embeddings:
+  static:
+    dim: 256
+    trainable: true
+  transformer:
+    freeze: false
+    max_length: 64
+    model_name: distilbert-base-uncased
+  type: static
+evaluation:
+  beam_search: true
+  beam_size: 5
+  bleu_max_n: 4
+  max_decode_length: 50
+  metrics:
+  - bleu
+  - rouge
+  rouge_types:
+  - rouge1
+  - rouge2
+  - rougeL
+hardware:
+  device: auto
+  num_workers: 0
+  pin_memory: true
+logging:
+  log_interval: 100
+  save_dir: experiments/ablation/layers2_heads4
+  tensorboard: false
+seeds:
+  numpy_seed: 42
+  random_seed: 42
+  torch_cuda_seed: 42
+  torch_seed: 42
+seq2seq:
+  attention_dim: 512
+  decoder_dropout: 0.3
+  decoder_hidden_dim: 512
+  decoder_layers: 2
+  embedding_dim: 256
+  encoder_dropout: 0.3
+  encoder_hidden_dim: 512
+  encoder_layers: 2
+  teacher_forcing: 0.5
+training:
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-08
+  batch_size: 128
+  early_stopping: true
+  early_stopping_patience: 5
+  epochs: 20
+  gradient_clip: 1.0
+  learning_rate: 0.001
+  optimizer: adam
+  scheduler_factor: 0.5
+  scheduler_min_lr: 1.0e-05
+  scheduler_patience: 3
+  weight_decay: 0.0001
+transformer:
+  activation: relu
+  d_model: 256
+  dim_feedforward: 1024
+  dropout: 0.1
+  nhead: 4
+  num_decoder_layers: 2
+  num_encoder_layers: 2

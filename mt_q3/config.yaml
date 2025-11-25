@@ -1,0 +1,117 @@
+# Machine Translation (Question 3) Configuration
+# Mirrors Question 2 setup and extends with Transformer & embedding options (Question 1 paradigms)
+
+# =============================================================================
+# Seeds
+# =============================================================================
+seeds:
+  random_seed: 42
+  numpy_seed: 42
+  torch_seed: 42
+  torch_cuda_seed: 42
+
+# =============================================================================
+# Dataset
+# =============================================================================
+dataset:
+  name: "multi30k"     # keep identical to Q2; swap to iwslt2014 for larger study
+  source_lang: "en"
+  target_lang: "de"
+  min_freq: 2
+  max_length: 50
+  sos_token: "<sos>"
+  eos_token: "<eos>"
+  pad_token: "<pad>"
+  unk_token: "<unk>"
+
+# =============================================================================
+# Embeddings (Question 1 paradigms)
+# =============================================================================
+embeddings:
+  type: "static"       # options: static (GloVe-like), transformer (BERT/DistilBERT)
+  static:
+    dim: 256
+    trainable: true
+  transformer:
+    model_name: "distilbert-base-uncased"
+    max_length: 64
+    freeze: false
+
+# =============================================================================
+# Seq2Seq (Additive attention) Hyperparameters
+# =============================================================================
+seq2seq:
+  embedding_dim: 256
+  encoder_hidden_dim: 512
+  decoder_hidden_dim: 512
+  encoder_layers: 2
+  decoder_layers: 2
+  encoder_dropout: 0.3
+  decoder_dropout: 0.3
+  attention_dim: 512
+  teacher_forcing: 0.5
+
+# =============================================================================
+# Transformer Hyperparameters
+# =============================================================================
+transformer:
+  d_model: 256
+  nhead: 4
+  num_encoder_layers: 4
+  num_decoder_layers: 4
+  dim_feedforward: 1024
+  dropout: 0.1
+  activation: "relu"
+
+# Ablation search ranges
+ablation:
+  layers: [2, 4, 6]
+  heads: [2, 4, 8]
+
+# =============================================================================
+# Training
+# =============================================================================
+training:
+  batch_size: 128
+  learning_rate: 0.001
+  epochs: 20
+  gradient_clip: 1.0
+  scheduler_factor: 0.5
+  scheduler_patience: 3
+  scheduler_min_lr: 0.00001
+  early_stopping: true
+  early_stopping_patience: 5
+  optimizer: "adam"
+  weight_decay: 0.0001
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8
+  limit_train: null   # set small int for quick debug runs
+  limit_val: null     # set small int for quick debug runs
+
+# =============================================================================
+# Evaluation
+# =============================================================================
+evaluation:
+  beam_search: true
+  beam_size: 5
+  max_decode_length: 50
+  metrics: ["bleu", "rouge"]
+  bleu_max_n: 4
+  rouge_types: ["rouge1", "rouge2", "rougeL"]
+
+# =============================================================================
+# Hardware
+# =============================================================================
+hardware:
+  device: "auto"    # "auto" | "cuda" | "cpu"
+  num_workers: 0
+  pin_memory: true
+
+# =============================================================================
+# Logging
+# =============================================================================
+logging:
+  log_interval: 100
+  save_dir: "experiments"
+  tensorboard: false

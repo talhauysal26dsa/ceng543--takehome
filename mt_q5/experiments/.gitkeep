@@ -1,0 +1,13 @@
+# Experiments Directory
+
+This directory will contain experiment outputs and metadata.
+
+## Structure
+
+After running `run_analysis.py`, this directory will be populated with:
+
+- Configuration snapshots
+- Experiment logs
+- Intermediate results
+
+Files are automatically created during analysis.
