@@ -45,36 +45,6 @@ Film yorumlarını okuyup "olumlu" veya "olumsuz" diye sınıflandıran modeller
 2. **Macro F1:** Hem pozitif hem negatif sınıflar için dengeli performans
 3. **Convergence Efficiency:** Model ne kadar hızlı öğreniyor
 
-## 🗂️ Proje Yapısı
-
-```
-mt_q1/
-├── README.md                          # Bu dosya
-├── requirements.txt                   # Gerekli Python paketleri
-├── data/                              # Veri dosyaları
-│   ├── raw/                           # Ham IMDb verisi
-│   └── processed/                     # İşlenmiş veri
-├── embeddings/                        # Embedding dosyaları
-│   ├── glove/                         # GloVe vektörleri
-│   └── cache/                         # BERT cache
-├── models/                            # Model tanımları
-│   ├── lstm_model.py                  # LSTM modeli
-│   ├── gru_model.py                   # GRU modeli
-│   └── bert_classifier.py             # BERT modeli
-├── utils/                             # Yardımcı fonksiyonlar
-│   ├── data_loader.py                 # Veri yükleme
-│   ├── preprocessing.py               # Ön işleme
-│   └── embedding_loader.py            # Embedding yükleme
-├── train.py                           # Eğitim scripti
-├── evaluate.py                        # Değerlendirme scripti
-├── experiments/                       # Deney sonuçları
-│   ├── lstm_glove/                    # LSTM + GloVe sonuçları
-│   ├── lstm_bert/                     # LSTM + BERT sonuçları
-│   ├── gru_glove/                     # GRU + GloVe sonuçları
-│   └── gru_bert/                      # GRU + BERT sonuçları
-└── notebooks/                         # Jupyter notebook'lar
-    └── analysis.ipynb                 # Sonuç analizi
-```
 
 ## 🚀 Kurulum
 
