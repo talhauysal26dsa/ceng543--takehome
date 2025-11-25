@@ -1,0 +1,30 @@
+{
+  "attention_type": "bahdanau",
+  "perplexity": 21.190342508989833,
+  "bleu": 33.40326226287103,
+  "rouge1": 0.6420653236119052,
+  "rouge2": 0.4308220098278361,
+  "rougeL": 0.6180859237745968,
+  "sample_translations": [
+    {
+      "reference": "ein mann mit einem orangefarbenen hut , der etwas <unk> .",
+      "hypothesis": "ein mann mit einem orangefarbenen hut schaut auf etwas ."
+    },
+    {
+      "reference": "ein boston terrier läuft über <unk> gras vor einem weißen zaun .",
+      "hypothesis": "ein <unk> <unk> läuft auf einem grünen wiese vor einem grünen ."
+    },
+    {
+      "reference": "ein mädchen in einem karateanzug bricht ein brett mit einem tritt .",
+      "hypothesis": "ein mädchen in <unk> macht einen stock mit einem ."
+    },
+    {
+      "reference": "fünf leute in winterjacken und mit helmen stehen im schnee mit <unk> im hintergrund .",
+      "hypothesis": "fünf personen in <unk> und mit helmen stehen im schnee im hintergrund im hintergrund ."
+    },
+    {
+      "reference": "leute reparieren das dach eines hauses .",
+      "hypothesis": "leute reparieren sich dach dach eines hauses ."
+    }
+  ]
+}

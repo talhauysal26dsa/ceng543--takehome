@@ -1,0 +1,30 @@
+{
+  "attention_type": "luong",
+  "perplexity": 22.576975142258703,
+  "bleu": 28.15302426457209,
+  "rouge1": 0.5929969343515284,
+  "rouge2": 0.3782187687515788,
+  "rougeL": 0.5724841900586798,
+  "sample_translations": [
+    {
+      "reference": "ein mann mit einem orangefarbenen hut , der etwas <unk> .",
+      "hypothesis": "ein mann mit orangefarbener orangefarbenen hut beobachtet etwas ."
+    },
+    {
+      "reference": "ein boston terrier läuft über <unk> gras vor einem weißen zaun .",
+      "hypothesis": "ein <unk> <unk> auf einem weißen zaun vor einem zaun ."
+    },
+    {
+      "reference": "ein mädchen in einem karateanzug bricht ein brett mit einem tritt .",
+      "hypothesis": "ein mädchen in <unk> , ein stock mit einem stock ."
+    },
+    {
+      "reference": "fünf leute in winterjacken und mit helmen stehen im schnee mit <unk> im hintergrund .",
+      "hypothesis": "fünf personen in <unk> <unk> helmen stehen im schnee im hintergrund ."
+    },
+    {
+      "reference": "leute reparieren das dach eines hauses .",
+      "hypothesis": "leute schauen auf einem haus eines hauses ."
+    }
+  ]
+}

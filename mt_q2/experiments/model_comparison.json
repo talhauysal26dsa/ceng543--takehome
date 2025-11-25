@@ -1,0 +1,97 @@
+{
+  "results": [
+    {
+      "attention_type": "bahdanau",
+      "perplexity": 21.190342508989833,
+      "bleu": 33.40326226287103,
+      "rouge1": 0.6420653236119052,
+      "rouge2": 0.4308220098278361,
+      "rougeL": 0.6180859237745968,
+      "sample_translations": [
+        {
+          "reference": "ein mann mit einem orangefarbenen hut , der etwas <unk> .",
+          "hypothesis": "ein mann mit einem orangefarbenen hut schaut auf etwas ."
+        },
+        {
+          "reference": "ein boston terrier läuft über <unk> gras vor einem weißen zaun .",
+          "hypothesis": "ein <unk> <unk> läuft auf einem grünen wiese vor einem grünen ."
+        },
+        {
+          "reference": "ein mädchen in einem karateanzug bricht ein brett mit einem tritt .",
+          "hypothesis": "ein mädchen in <unk> macht einen stock mit einem ."
+        },
+        {
+          "reference": "fünf leute in winterjacken und mit helmen stehen im schnee mit <unk> im hintergrund .",
+          "hypothesis": "fünf personen in <unk> und mit helmen stehen im schnee im hintergrund im hintergrund ."
+        },
+        {
+          "reference": "leute reparieren das dach eines hauses .",
+          "hypothesis": "leute reparieren sich dach dach eines hauses ."
+        }
+      ]
+    },
+    {
+      "attention_type": "luong",
+      "perplexity": 22.576975142258703,
+      "bleu": 28.15302426457209,
+      "rouge1": 0.5929969343515284,
+      "rouge2": 0.3782187687515788,
+      "rougeL": 0.5724841900586798,
+      "sample_translations": [
+        {
+          "reference": "ein mann mit einem orangefarbenen hut , der etwas <unk> .",
+          "hypothesis": "ein mann mit orangefarbener orangefarbenen hut beobachtet etwas ."
+        },
+        {
+          "reference": "ein boston terrier läuft über <unk> gras vor einem weißen zaun .",
+          "hypothesis": "ein <unk> <unk> auf einem weißen zaun vor einem zaun ."
+        },
+        {
+          "reference": "ein mädchen in einem karateanzug bricht ein brett mit einem tritt .",
+          "hypothesis": "ein mädchen in <unk> , ein stock mit einem stock ."
+        },
+        {
+          "reference": "fünf leute in winterjacken und mit helmen stehen im schnee mit <unk> im hintergrund .",
+          "hypothesis": "fünf personen in <unk> <unk> helmen stehen im schnee im hintergrund ."
+        },
+        {
+          "reference": "leute reparieren das dach eines hauses .",
+          "hypothesis": "leute schauen auf einem haus eines hauses ."
+        }
+      ]
+    },
+    {
+      "attention_type": "scaled_dot",
+      "perplexity": 18.169343916831007,
+      "bleu": 34.638366369768214,
+      "rouge1": 0.6498800711201711,
+      "rouge2": 0.44601908279055846,
+      "rougeL": 0.6277798114528218,
+      "sample_translations": [
+        {
+          "reference": "ein mann mit einem orangefarbenen hut , der etwas <unk> .",
+          "hypothesis": "ein mann mit einem orangefarbenen hut starrt etwas etwas ."
+        },
+        {
+          "reference": "ein boston terrier läuft über <unk> gras vor einem weißen zaun .",
+          "hypothesis": "ein <unk> , der auf dem grünen gras vor einem weißen zaun ."
+        },
+        {
+          "reference": "ein mädchen in einem karateanzug bricht ein brett mit einem tritt .",
+          "hypothesis": "ein mädchen in karateanzügen schlägt einen <unk> vor einem ."
+        },
+        {
+          "reference": "fünf leute in winterjacken und mit helmen stehen im schnee mit <unk> im hintergrund .",
+          "hypothesis": "fünf personen mit winterjacken und helmen stehen im schnee , im hintergrund sind im hintergrund ."
+        },
+        {
+          "reference": "leute reparieren das dach eines hauses .",
+          "hypothesis": "menschen bauen das dach eines hauses ."
+        }
+      ]
+    }
+  ],
+  "best_perplexity": "scaled_dot",
+  "best_bleu": "scaled_dot",
+  "best_rouge": "scaled_dot"
+}

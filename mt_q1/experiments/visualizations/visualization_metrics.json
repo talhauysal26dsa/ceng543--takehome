@@ -1,0 +1,46 @@
+{
+  "gru_bert": {
+    "separability": {
+      "center_distance": 15.887721061706543,
+      "avg_variance": 0.06870792806148529,
+      "separability_score": 60.611939384917015
+    },
+    "pca_explained_variance": [
+      0.7541855573654175,
+      0.04460752755403519
+    ]
+  },
+  "gru_glove": {
+    "separability": {
+      "center_distance": 7.613898277282715,
+      "avg_variance": 0.021307002753019333,
+      "separability_score": 52.160997651477366
+    },
+    "pca_explained_variance": [
+      0.9165868163108826,
+      0.026503827422857285
+    ]
+  },
+  "lstm_bert": {
+    "separability": {
+      "center_distance": 15.598997116088867,
+      "avg_variance": 0.06695560365915298,
+      "separability_score": 60.284159860851915
+    },
+    "pca_explained_variance": [
+      0.7524866461753845,
+      0.04160201549530029
+    ]
+  },
+  "lstm_glove": {
+    "separability": {
+      "center_distance": 4.372661590576172,
+      "avg_variance": 0.008729411289095879,
+      "separability_score": 46.80081216512684
+    },
+    "pca_explained_variance": [
+      0.9002911448478699,
+      0.06682240962982178
+    ]
+  }
+}
