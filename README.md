@@ -1,5 +1,5 @@
 # CENG543 Deep Learning - Take-Home Exam Solutions
-THESE QUESTIONS AND REPORTS ARE DONE WITH CLAUDE SONNET 4.5
+THESE QUESTIONS AND REPORTS WERE DONE WITH CLAUDE SONNET 4.5
 
 This repository contains comprehensive solutions to 5 deep learning questions covering sentiment analysis, neural machine translation, attention mechanisms, retrieval-augmented generation, and model interpretability.
 
